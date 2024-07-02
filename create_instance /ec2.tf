@@ -8,6 +8,7 @@ resource "aws_instance" "instance" {
   ami = lookup(var.AMIS, var.AWS_REGION)
   instance_type = "t2.micro"
   key_name = aws_key_pair.ec2key.key_name
+  availability_zone = "us-east-1a"
   user_data = file("install.sh")
 
   tags = {
