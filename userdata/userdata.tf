@@ -1,6 +1,6 @@
 # Provider Configuration
 provider "aws" {
-  region = "us-east-1a"  # Specify the desired AWS region
+  region = "us-east-1"  # Specify the desired AWS region
 }
 
 # EC2 Instance with User Data
