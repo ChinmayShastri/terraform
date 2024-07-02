@@ -7,7 +7,7 @@ resource "aws_key_pair" "ec2key" {
 resource "aws_instance" "instance" {
   ami = lookup(var.AMIS, var.AWS_REGION)
   instance_type = "t2.micro"
-  key_name = aws_key_pair.ec2key
+  key_name = aws_key_pair.ec2key.key_name
   user_data = file("install.sh")
 
   tags = {
