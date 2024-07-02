@@ -1,11 +1,11 @@
 # Provider Configuration
 provider "aws" {
-  region = "us-east-1"  # Specify the desired AWS region
+  region = "us-east-2"  # Specify the desired AWS region
 }
 
 # EC2 Instance with User Data
 resource "aws_instance" "example" {
-  ami           = "ami-0b0ea68c435eb488d"  # Replace with your desired AMI
+  ami           = "ami-05803413c51f242b7"  # Replace with your desired AMI
   instance_type = "t2.micro"
 
   user_data = <<-EOF
