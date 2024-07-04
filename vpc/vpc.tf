@@ -1,6 +1,6 @@
 #VPC defination:
 resource "aws_vpc" "shivay" {
-    cidr_block           = "192.0.0.0/16"
+    cidr_block           = "192.168.0.0/16"
     instance_tenancy     = "default"
     enable_dns_support   = "true"
     enable_dns_hostnames = "true"
@@ -60,7 +60,7 @@ resource "aws_subnet" "shivay-private-2" {
     vpc_id = aws_vpc.shivay.id
     cidr_block = "192.168.4.0/24"
     map_public_ip_on_launch = "false"
-    availability_zone = "us-east-2a"
+    availability_zone = "us-east-2b"
 
     tags = {
       Name        = "shivay-private-subnet-2"
