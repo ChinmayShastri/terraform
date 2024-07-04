@@ -9,7 +9,7 @@ resource "aws_eip" "shivay-eip" {
 resource "aws_nat_gateway" "shivay-nat" {
     allocation_id = aws_eip.shivay-eip.id
     subnet_id     = aws_subnet.shivay-public-1.id
-    depends_on    = [ aws_internet_gateway ]
+    depends_on    = [ aws_internet_gateway.shivay-gw ]
 }
 
 #Resource for Private route table
