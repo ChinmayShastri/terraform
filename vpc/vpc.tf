@@ -56,7 +56,7 @@ resource "aws_subnet" "shivay-private-1" {
     }
 }
 
-resource "aws_subnet" "shivay-project-2" {
+resource "aws_subnet" "shivay-private-2" {
     vpc_id = aws_vpc.shivay.id
     cidr_block = "192.168.4.0/24"
     map_public_ip_on_launch = "false"
