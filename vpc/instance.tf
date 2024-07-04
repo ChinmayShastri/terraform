@@ -10,6 +10,9 @@ resource "aws_instance" "shivay-ec2" {
   instance_type = "t2.micro"
   key_name = aws_key_pair.shivay-key_pair.key_name
 
+  vpc_security_group_ids = [aws_security_group.shivay-sg.id]
+  subnet_id = aws_subnet.shivay-public-1.id
+
   user_data = file("install.sh")
 
   tags = {
