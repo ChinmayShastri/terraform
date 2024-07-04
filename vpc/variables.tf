@@ -7,8 +7,8 @@ variable "REGION" {
 variable "AMI" {
     type = map
     default = {
-        us-east-2 = ami-123
-        us-east-1 = ami-321
+        us-east-2 = "ami-05803413c51f242b7"
+        us-east-1 = "ami-0b0ea68c435eb488d"
   }
 }
 
