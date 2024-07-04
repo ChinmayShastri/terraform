@@ -21,7 +21,7 @@ resource "aws_instance" "shivay-ec2" {
 
 }
 
-output "ec2_ip's" {
+output "ec2_ip" {
   value = {
     public_ip = aws_instance.shivay-ec2.public_ip
     private_ip = aws_instance.shivay-ec2.private_ip
