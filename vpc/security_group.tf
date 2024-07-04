@@ -1,6 +1,6 @@
 #Security group defination for shivay vpc
 resource "aws_security_group" "shivay-sg" {
-  vpc_id      = aws_vpc.shivay
+  vpc_id      = aws_vpc.shivay.id
   name        = "shivay-sg"
   description = "Security group to allow ssh connection for instances under shivay vpc"
 
@@ -10,7 +10,7 @@ resource "aws_security_group" "shivay-sg" {
     protocol    = "-1"
     cidr_blocks = [ "0.0.0.0/0" ]
   }
-  
+
   ingress {
     from_port   = 22
     to_port     = 22
