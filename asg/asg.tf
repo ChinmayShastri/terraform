@@ -50,7 +50,8 @@ resource "aws_autoscaling_policy" "shivay-policy" {
 resource "aws_cloudwatch_metric_alarm" "shivay-cpu-alarm-up" {
   alarm_name          = "shivay-cpu-alarm-up"
   alarm_description   = "Alarm once CPU is increased above 60%"
-  comparison_operator = "GraterThanOrEqualToThreshold"
+#  comparison_operator = "GraterThanOrEqualToThreshold"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "2"
   metric_name         = "CPUUtilization"
   namespace           = "AWS/EC2"
