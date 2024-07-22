@@ -1,9 +1,24 @@
 #AWS Launch Configuration defination for shivay project
-resource "aws_launch_configuration" "shivay_lc"{
-  name_prefix   = "shivay_LC"
+# resource "aws_launch_configuration" "shivay_lc"{
+#   name_prefix   = "shivay_LC"
+#   image_id      = lookup(var.AMIS, var.AWS_REGION)
+#   instance_type = "t2.micro"
+#   key_name      = aws_key_pair.shivay_key.key_name
+# }
+
+# Launch Template
+resource "aws_launch_template" "shivay-lt" {
+  name_prefix   = "shivay-lt"
   image_id      = lookup(var.AMIS, var.AWS_REGION)
   instance_type = "t2.micro"
   key_name      = aws_key_pair.shivay_key.key_name
+  
+  tag_specifications {
+    resource_type = "instance"
+    tags = {
+      Name = "shivay-asg-instance"
+    }
+  }
 }
 
 #Generate Key
@@ -16,12 +31,16 @@ resource "aws_key_pair" "shivay_key" {
 resource "aws_autoscaling_group" "shivay_asg" {
   name                      = "shivay_asg"
   vpc_zone_identifier       = ["subnet-01d3040af0fc503ba", "subnet-03839f8a8baabc3e3"]
-  launch_configuration      = aws_launch_configuration.shivay_lc.name
+#  launch_configuration      = aws_launch_configuration.shivay_lc.name
   min_size                  = 1
   max_size                  = 3
   health_check_grace_period = 200
   health_check_type         = "EC2"
   force_delete              = true
+  launch_template {
+    id      = aws_launch_template.shivay-lt.id
+    version = "$Latest"
+  }
 
   tag {
     key                 = "NAME"
