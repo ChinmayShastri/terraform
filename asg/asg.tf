@@ -30,6 +30,7 @@ resource "aws_key_pair" "shivay_key" {
 #Autoscaling Group defination
 resource "aws_autoscaling_group" "shivay_asg" {
   name                      = "shivay_asg"
+  availability_zones        = ["us-east-2a"]
   vpc_zone_identifier       = ["subnet-04d74c6fc2503ce24"]
 #  launch_configuration      = aws_launch_configuration.shivay_lc.name
   min_size                  = 1
