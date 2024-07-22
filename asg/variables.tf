@@ -6,7 +6,7 @@ variable "AMIS" {
   type = map
   default = {
     us-east-1 = "ami-123"
-    us-east-2 = "ami-321"
+    us-east-2 = "ami-0649bea3443ede307"
   }
 }
 
