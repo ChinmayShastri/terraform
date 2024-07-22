@@ -6,6 +6,11 @@
 #   key_name      = aws_key_pair.shivay_key.key_name
 # }
 
+#Provider
+provider "aws" {
+  region = "us-east-2"  # Specify the desired AWS region
+}
+
 # Launch Template
 resource "aws_launch_template" "shivay-lt" {
   name_prefix   = "shivay-lt"
