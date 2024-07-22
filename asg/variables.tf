@@ -11,7 +11,7 @@ variable "AMIS" {
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "shivay_pub_key"
+  default = "shivay_key.pub"
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
